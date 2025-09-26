@@ -101,7 +101,7 @@ function handleCardClick(card) {
     // Якщо кількість відкритих карт дорівнює загальної кількості карт, то це перемога
 
     const isVictory = visibleCardsNodes.length === CARDS_AMOUNT;
-    const victoryMessage = "Поздравляю, вы победили!";
+    const victoryMessage = "Congratulations, you won!";
 
     if (isVictory) {
       WINNING_TEXT.textContent = victoryMessage;
