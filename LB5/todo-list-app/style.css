@@ -1,0 +1,423 @@
+
+/* Color scheme */
+:root {
+    --primary-color: #001797; /* Main orange color */
+    --primary-gradient: linear-gradient(135deg, #001797 0%, #0224bd 100%);
+    --primary-light: #0224bd;
+    --primary-dark:#001797;
+    --background-color: #121223; /* Dark blue background */
+    --card-bg-color: #97baeb;
+    --card-hover: #84b7ff;
+    --text-color: #ffffff;
+    --text-secondary: #ced4da;
+    --text-muted: #464a4e;
+    --success-color: #31c370; /* Green for completed tasks */
+    --warning-color: #ffbe76; /* Amber for medium priority */
+    --danger-color: #fc5c65; /* Red for high priority */
+    --border-radius: 16px;
+    --border-radius-sm: 8px;
+    --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Main styling for the page */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top right, #fdfdfd 0%, #b6d6f8 100%);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    line-height: 1.6;
+}
+/* Container for the app */
+.container {
+    width: 100%;
+    max-width: 850px;
+    background: var(--card-bg-color);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+}
+/* App title styling */
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* Form for adding new tasks */
+#todo-form {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+}
+/* Style for all input fields */
+#todo-input,
+#due-date-input,
+#priority-input,
+#search-bar,
+#filter-option,
+#sort-option {
+    padding: 14px 18px;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    background-color: rgba(0, 0, 0, 0.07);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+/* Custom styling for dropdown menus */
+select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px !important;
+}
+/* Styling for dropdown options */
+select option {
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    padding: 12px;
+}
+/* Firefox specific styles */
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 var(--text-color);
+}
+/* Hide default dropdown arrow in IE */
+select::-ms-expand {
+    display: none;
+}
+/* Highlight effect when input is focused */
+#todo-input:focus,
+#due-date-input:focus,
+#priority-input:focus,
+#search-bar:focus,
+#filter-option:focus,
+#sort-option:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 2px rgba(54, 94, 252, 0.4);
+}
+/* Style for placeholder text */
+::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+/* Make the task input field grow to fill space */
+#todo-input {
+    flex-grow: 1;
+}
+/* Style for the add task button */
+#add-todo {
+    padding: 14px 24px;
+    background: var(--primary-gradient);
+    color: var(--text-color);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+}
+/* Button animation when hovered */
+#add-todo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(54, 94, 252, 0.4);
+}
+/* Button animation when clicked */
+#add-todo:active {
+    transform: translateY(-1px);
+}
+/* Search bar styling */
+#search-bar {
+    width: 100%;
+    margin-bottom: 24px;
+}
+/* Container for filter and sort dropdowns */
+#filter-sort {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+}
+/* Make filter and sort options take up equal space */
+#filter-option,
+#sort-option {
+    flex: 1;
+    cursor: pointer;
+}
+/* Style for the task list */
+#todo-list {
+    list-style-type: none;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+}
+/* Style for each task item */
+.todo-item {
+    background: rgba(255, 255, 255, 0.153);
+    border-left: 4px solid transparent;
+    margin-bottom: 16px;
+    padding: 18px 24px;
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+/* Hover effect for task items */
+.todo-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background: var(--card-hover);
+}
+/* Task text styling */
+.task-text {
+    font-size: 1.05rem;
+    flex-grow: 1;
+    margin-right: 12px;
+    font-weight: 500;
+}
+/* Style for completed tasks (strikethrough) */
+.todo-item.completed {
+    background: rgba(255, 255, 255, 0.02);
+}
+.todo-item.completed .task-text {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+/* Container for task information */
+.task-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+/* Container for task action buttons */
+.todo-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+/* Style for action buttons (complete, edit, delete) */
+.todo-actions button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: var(--transition);
+    color: var(--text-color);
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Button color styles */
+.complete-btn { background-color: var(--success-color); }
+.edit-btn { background-color: var(--warning-color); }
+.delete-btn { background-color: var(--danger-color); }
+/* Hover effect for action buttons */
+.todo-actions button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Pagination controls */
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin: 28px 0;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+}
+/* Pagination button styles */
+#pagination button {
+    padding: 12px 24px;
+    background-color: rgba(255, 255, 255, 0.153);
+    color: var(--text-color);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+/* Hover effect for pagination buttons */
+#pagination button:hover:not(:disabled) {
+    background: var(--primary-gradient);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(54, 94, 252, 0.4);
+}
+/* Style for disabled buttons */
+#pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+/* Task statistics display */
+#stats {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.153);
+    border-radius: var(--border-radius-sm);
+    position: relative;
+    z-index: 1;
+}
+#stats strong {
+    color: var(--primary-light);
+}
+/* Task priority indicator colors */
+.priority-high { border-left-color: var(--danger-color); }
+.priority-medium { border-left-color: var(--warning-color); }
+.priority-low { border-left-color: var(--success-color); }
+/* Due date display */
+.due-date {
+    width: 55%;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-left: 12px;
+    background: rgba(255, 255, 255, 0.160);
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 4px;
+}
+/* Priority label styling */
+.priority-badge {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 20px;
+    margin-right: 8px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* Colors for priority badges */
+.priority-badge.high {
+    background-color: rgba(252, 92, 100, 0.250);
+    color: var(--danger-color);
+}
+.priority-badge.medium {
+    background-color: rgba(255, 190, 118, 0.250);
+    color: var(--warning-color);
+}
+.priority-badge.low {
+    background-color: rgba(78, 204, 163, 0.250);
+    color: var(--success-color);
+}
+/* Custom styling for date picker */
+input[type="date"] {
+    position: relative;
+}
+/* Custom calendar icon for date picker */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='15' viewBox='0 0 24 24'><path fill='white' d='M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z'/></svg>");
+    cursor: pointer;
+    opacity: 0.8;
+}
+input[type="date"] {
+    color-scheme: light;
+}
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 28px 20px;
+    }
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 24px;
+    }
+    /* Stack form elements vertically on mobile */
+    #todo-form {
+        flex-direction: column;
+    }
+    #todo-input,
+    #due-date-input,
+    #priority-input,
+    #add-todo {
+        width: 100%;
+    }
+    
+    /* Stack filter and sort options vertically */
+    #filter-sort {
+        flex-direction: column;
+    }
+    
+    /* Smaller padding on mobile */
+    .todo-item {
+        padding: 16px 18px;
+    }
+    /* Hide button text on mobile */
+    .button-text {
+        display: none;
+    }
+    
+    /* Adjust action buttons for mobile */
+    .todo-actions {
+        display: flex;
+        width: auto;
+        justify-content: flex-end;
+    }
+    
+    .todo-actions button {
+        margin: 0;
+        width: 40px;
+        height: 40px;
+    }
+}
+/* Fade-in animation for new tasks */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.todo-item {
+    animation: fadeIn 0.5s ease-out;
+}
+/* Pulsing animation for buttons */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+#add-todo:focus {
+ animation: pulse 1s infinite;
+}

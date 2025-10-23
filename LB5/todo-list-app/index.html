@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>To-Do List</h1>
+
+        <!-- Form for adding new tasks -->
+        <form id="todo-form">
+            <input type="text" id="todo-input" placeholder="What needs to be done?" required>
+            <input type="date" id="due-date-input">
+            <select id="priority-input">
+                <option value="low">Low Priority</option>
+                <option value="medium">Medium Priority</option>
+                <option value="high">High Priority</option>
+            </select>
+            <button type="submit" id="add-todo">Add Task</button>
+        </form>
+
+        <!-- Search box -->
+        <input type="text" id="search-bar" placeholder="Search your tasks...">
+
+        <!-- Filter and sort options -->
+        <div id="filter-sort">
+            <select id="filter-option">
+                <option value="all">All Tasks</option>
+                <option value="active">Active Tasks</option>
+                <option value="completed">Completed Tasks</option>
+            </select>
+            <select id="sort-option">
+                <option value="date-added">Sort by Date Added</option>
+                <option value="due-date">Sort by Due Date</option>
+                <option value="priority">Sort by Priority</option>
+            </select>
+        </div>
+
+        <!-- Task list container -->
+        <ul id="todo-list"></ul>
+
+        <!-- Pagination buttons -->
+        <div id="pagination">
+            <button id="prev-page" disabled>Previous Page</button>
+            <button id="next-page">Next Page</button>
+        </div>
+
+        <!-- Stats display -->
+        <div id="stats"></div>
+    </div> 
+
+    <script src="script.js"></script>
+</body>
+
+</html>
