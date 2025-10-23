@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+    <div class="card">
+        <h1 class="card__title">Weather App</h1>
+        <p class="card__date">Today, <span id="date"></span></p>
+        <div class="card__search">
+            <input type="text" class="card__input" placeholder="Enter city name"/>
+            <button id="searchBtn" class="card__btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+        <div class="card__weather">
+            <h2 id="city" class="card__title card__title--city">New York</h2>
+            <div class="card__block">
+                <h3 class="card__title card__title--temp">22°C</h3>
+                <img src="" class="card__weather-icon" alt="Icon">
+            </div>
+            <div class="card__details">
+                <div class="card__col">
+                    <i class="fa-solid fa-wind"></i>
+                    <p>Wind</p>
+                    <p id="wind" class="card__info">15 m/s</p>
+                </div>
+                <div class="card__col">
+                    <i class="fa-solid fa-droplet"></i>
+                    <p>Hum</p>
+                    <p id="humidity" class="card__info">50 %</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
