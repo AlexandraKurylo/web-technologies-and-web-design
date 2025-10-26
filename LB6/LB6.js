@@ -88,7 +88,7 @@ function getUser(userID) {
 
 // async function fetchUser(id) {
 //     try {
-//         console.log(`Початок запиту для ID ${id}...`);
+//         console.log(`Початок запиту для ID ${id}`);
 //         const user = await getUser(id);
 //         console.log(`async/await Успіх: Отримано користувача: ${user.name}`);
 //     } catch (error) {
@@ -119,7 +119,7 @@ function getUser(userID) {
 // fetchAllUsers()
 //     .then(allUsers => {
 //         console.log("Успіх: Отримано всіх користувачів:");
-//         console.log(allUsers); 
+//     console.log(...allUsers); 
 //     })
 //     .catch(error => {
 //         console.error(`Помилка fetchAllUsers: ${error.message}`);
@@ -144,15 +144,15 @@ function getUser(userID) {
 
 // getUser(1)
 //     .then(user1 => {
-//         console.log(`[Послідовно 1] Отримано ${user1.name}. Час: ${Date.now() - sequentialStart}мс`);
+//         console.log(`1. Отримано ${user1.name}. Час: ${Date.now() - sequentialStart}мс`);
 //         return getUser(2); 
 //     })
 //     .then(user2 => {
-//         console.log(`[Послідовно 2] Отримано ${user2.name}. Час: ${Date.now() - sequentialStart}мс`);
+//         console.log(`2. тримано ${user2.name}. Час: ${Date.now() - sequentialStart}мс`);
 //         return getUser(3); 
 //     })
 //     .then(user3 => {
-//         console.log(`[Послідовно 3] Отримано ${user3.name}. Час: ${Date.now() - sequentialStart}мс`);
+//         console.log(`3. Отримано ${user3.name}. Час: ${Date.now() - sequentialStart}мс`);
 //         console.log(`Усі послідовні запити завершено. Загальний час: ${Date.now() - sequentialStart}мс.`);
 //     })
 //     .catch(error => {
