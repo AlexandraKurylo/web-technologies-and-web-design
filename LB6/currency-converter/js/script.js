@@ -3,7 +3,7 @@ const fromCurrency = document.querySelector(".from select");
 const  toCurrency = document.querySelector(".to select");
 const  getButton = document.querySelector("form button");
 
-const API_KEY = "6f500cceb902d0690de44c23";
+const apiKey = "6f500cceb902d0690de44c23";
 
 dropList.forEach((select, index) => {
   for (let currency_code in country_list) {
@@ -57,7 +57,7 @@ function getExchangeRate() {
 
   exchangeRateTxt.innerText = "Getting exchange rate...";
 
-  let url = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/${fromCurrency.value}`;
+  let url = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${fromCurrency.value}`;
   fetch(url)
     .then(response => response.json())
     .then(result => {
