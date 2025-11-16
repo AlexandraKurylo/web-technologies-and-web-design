@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інтеграція Cookie "Запам'ятати мене" (90 днів)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        <h1>Зберігання Статусу "Запам'ятати мене"</h1>
+        <div class="control-section">
+            <div class="checkbox-group">
+                <input type="checkbox" id="remember-me-checkbox">
+                <label for="remember-me-checkbox">Запам'ятати мене на 90 днів</label>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button id="save-button">
+                Встановити/Оновити Cookie
+            </button>
+            <button id="reset-button">
+                Скинути/Видалити Cookie
+            </button>
+        </div>
+
+        <div id="status-display">
+            <p>Статус завантажується...</p>
+        </div>
+
+        <p class="note">
+            * Cookie використовує ім'я `remember_user_90D` і зберігається на 90 днів.
+        </p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

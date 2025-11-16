@@ -1,0 +1,134 @@
+body {
+    background-color: #f7fafc;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-family: Arial, sans-serif; 
+}
+
+#app-container {
+    width: 100%;
+    max-width: 32rem;
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border: 1px solid #ebf8ff;
+    transition: transform 0.3s ease;
+}
+
+h1 {
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+#status-display {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    font-family: monospace; 
+    transition: all 0.5s;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+}
+
+#status-display > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.active-status {
+    background-color: #f0fff4;
+    border: 1px solid #9ae6b4;
+}
+
+.inactive-status {
+    background-color: #fffff0;
+    border: 1px solid #faf089;
+}
+
+.status-title-active {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #047857;
+    margin-bottom: 0.25rem;
+}
+.status-text-active {
+    font-size: 1.125rem;
+    color: #059669;
+}
+.status-highlight {
+    font-size: 2.25rem;
+    font-weight: 800;
+}
+
+.status-title-inactive {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #b45309;
+}
+.status-text-inactive {
+    font-size: 1.125rem;
+    color: #ca8a04;
+}
+
+.status-info {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 0.5rem;
+}
+
+.btn-group {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+button {
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border: none;
+    flex-grow: 1;
+    max-width: 50%;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#reset-button {
+    background-color: #ef4444;
+    color: white;
+}
+#reset-button:hover {
+    background-color: #dc2626;
+}
+
+#start-button {
+    background-color: #2563eb;
+    color: white;
+}
+#start-button:hover {
+    background-color: #1d4ed8;
+}
+
+.note {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 1rem;
+    text-align: center;
+}
